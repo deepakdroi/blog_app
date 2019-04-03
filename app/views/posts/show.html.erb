@@ -1,0 +1,12 @@
+<!-- shows the post that is  -->
+<h1 class="title">
+ @post.title
+</h1>
+
+<p>
+	submitted <%= time_ago_in_words(@post.created_at) %>
+</p>
+
+<p>
+	<%= @post.content %>
+</p>
