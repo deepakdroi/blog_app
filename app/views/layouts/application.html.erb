@@ -13,8 +13,8 @@
 <!-- path to be added later on for signup, login and log out if condition needed to show or hide login , signup and logout-->
   	<p>sign up</p> <br>
     <p>login</p><br>
-    <p>log out</p>
-    <br>
+    <p>log out</p><br>
+
     <!-- a link that will take us to the form of new post -->
     <p><%= link_to "new post", new_post_path %></p>
     <br>
@@ -22,7 +22,8 @@
   	<div>
   		<!-- showing all posts -->
   		<p>all posts</p>
-        <%= yield %>
+      <%= yield %>
     </div>
+    
   </body>
 </html>

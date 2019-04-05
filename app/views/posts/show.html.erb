@@ -1,6 +1,6 @@
 <!-- shows the post that is  -->
 <h1 class="title">
- <%= @post.title %>
+  <%= @post.title %>
 </h1>
 
 <p>
@@ -12,3 +12,11 @@
 <p>
 	<%= @post.content %>
 </p>
+
+<div>
+  <h2><% @post.comments.count %> Comments</h2>
+  <%= render @post.comments %>
+
+  <h3>add a comment:</h3>
+  <%= render "comments/form" %>
+</div>

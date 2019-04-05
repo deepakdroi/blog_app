@@ -10,45 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190402104531) do
+ActiveRecord::Schema.define(version: 20190405024051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string "content"
-    t.string "author"
-    t.bigint "people_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["people_id"], name: "index_articles_on_people_id"
-  end
-
   create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.bigint "people_id"
-    t.bigint "article_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
-    t.index ["people_id"], name: "index_comments_on_people_id"
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.string "content"
-    t.bigint "people_id"
-    t.bigint "comment_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_feedbacks_on_comment_id"
-    t.index ["people_id"], name: "index_feedbacks_on_people_id"
-  end
-
-  create_table "people", force: :cascade do |t|
     t.string "name"
-    t.string "email"
+    t.string "content"
+    t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -58,4 +31,5 @@ ActiveRecord::Schema.define(version: 20190402104531) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "posts"
 end

@@ -1,23 +1,30 @@
 <div class="form">
   <h1>this is posts page for new post</h1>
   <%= form_for :post, url: posts_path do |p| %>
+
     <% if @post.errors.any? %>
       <div id="error_explanation">
+
         <div class="alert alert-danger">
           The form contains <%= pluralize(@post.errors.count, "error") %>.
         </div>
+
         <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul> 
+
       </div>
+
     <% end %>
+
     <%= p.label :title %><br>
     <%= p.text_field :title %><br>
     <%= p.label :content %><br>
     <%= p.text_area :content %><br>
     <%= p.submit :post %><br>
   <% end %>
+  
 </div>
 
